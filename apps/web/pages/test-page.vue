@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>All Routes</h1>
+    <h1>All Routes test</h1>
     <ul>
       <li v-for="route in routes" :key="route.path">{{ route.path }}</li>
     </ul>
