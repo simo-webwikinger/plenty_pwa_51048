@@ -24,7 +24,7 @@
           :add-new-block="addNewBlock"
           :handle-edit="handleEdit"
           :delete-block="deleteBlock"
-          class="mx-8 md:mx-24 first:mx-0"
+          class="mx-8 md:mx-24 first:mx-0 !mb-0"
         />
       </template>
       <UiTeaser
@@ -37,7 +37,14 @@
       buttontext="Zum Angebot"
       :textblack=false
     />
-      <UiTeaser
+
+    <div class="mx-8 md:mx-24 my-4 md:my-8">
+    <ProductRecommendedProducts
+      headline="Entdecken Sie unsere Modekollektion"
+      categoryId="16"
+    />
+    </div>
+    <UiTeaser
       title="Alpina Rollputz"
       subtitle="20 % mehr Inhalt gratis!"
       description="Nur für kurze Zeit und solange der Vorrat reicht. In einem Arbeitsschritt zu perfekt strukturierten Wänden: Nur 1 x aufrollen – fertig!"
@@ -47,12 +54,6 @@
       buttontext="Jetzt entdecken"
       :textblack=true
     />
-    <div class="mx-8 md:mx-24 my-4 md:my-8">
-    <ProductRecommendedProducts
-      headline="Entdecken Sie unsere Modekollektion"
-      categoryId="16"
-    />
-    </div>
     <div class="mx-8 md:mx-24 my-4 md:my-8">
       <NewsletterSubscribe
         email="E-Mail"
