@@ -4,9 +4,9 @@
       <NuxtImg
         :src="imagePath"
         :alt="`${{ storeName }} logo`"
-        class="w-100 h-10 py-2"
-        width="150"
-        height="40"
+        class="w-100 md:h-[100px] h-[82px]"
+        width="122"
+        height="100"
         ref="logo"
         preload
       />
@@ -18,7 +18,7 @@
         :alt="`${{ storeName }} logo`"
         :width="imgWidth"
         :height="imgHeight"
-        class="max-h-[100px] max-w-[200px]"
+        class="max-h-[100px] max-w-[122px]"
         ref="logo"
         preload
       />

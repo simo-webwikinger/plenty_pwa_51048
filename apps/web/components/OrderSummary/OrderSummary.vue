@@ -2,12 +2,12 @@
   <div class="shadow-lg md:rounded-md md:border md:border-neutral-100" data-testid="order-summary">
     <div class="flex justify-between items-end py-2 px-4 md:px-6 md:pt-6 md:pb-4">
       <h2 class="typography-headline-4 font-bold md:typography-headline-3">{{ t('orderSummary') }}</h2>
-      <!-- <p class="typography-text-base font-medium" data-testid="total-in-cart">
+      <p class="typography-text-base font-medium" data-testid="total-in-cart">
         {{ t('itemsInCart', cartItemsCount) }}
-      </p> -->
+      </p>
     </div>
 
-    <div class="px-4 pb-4 mt-4 md:px-6 md:pb-6">
+    <div class="px-4 pb-4 mt-3 md:px-6 md:pb-6 md:mt-0">
       <div v-if="orderPropertiesWithVatAdditionalCosts.length > 0" class="mb-4">
         <div
           class="flex justify-between typography-text-base w-full"
@@ -26,18 +26,14 @@
       <div class="flex justify-between typography-text-base pb-4">
         <div class="flex flex-col gap-2 grow pr-2">
           <p data-testid="subtotal-label">{{ t('itemsSubtotal') }}</p>
-          <UiDivider class="w-auto mt-2 mb-3" />
-
           <p data-testid="shipping-label">{{ t('delivery') }}</p>
           <p v-if="cartGetters.getCouponDiscount(props.cart)" data-testid="coupon-label">{{ t('coupon.name') }}</p>
-          <p v-for="(vat, index) in totals.vats" :key="index" data-testid="vat-label" class="mb-3">
+          <p v-for="(vat, index) in totals.vats" :key="index" data-testid="vat-label">
             {{ t('estimatedTax') }} {{ cartGetters.getTotalVatValue(vat) }}%
           </p>
         </div>
         <div class="flex flex-col gap-2 text-right">
           <p data-testid="subtotal" class="font-medium">{{ n(totals.subTotal, 'currency') }}</p>
-          <UiDivider class="w-auto mt-2 mb-3" />
-
           <p data-testid="shipping" class="font-medium">
             {{ getShippingAmount(cartGetters.getShippingPrice(props.cart)) }}
           </p>

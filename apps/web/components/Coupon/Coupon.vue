@@ -2,7 +2,7 @@
   <div class="border-b border-neutral-200">
     <SfAccordionItem v-if="!cartGetters.getCouponDiscount(cart)" data-testid="couponZone" v-model="openedCoupon">
       <template #summary>
-        <div :class="['flex justify-between font-medium p-3', { 'my-4 bg-sky-50 rounded-md': openedCoupon }]">
+        <div :class="['flex justify-between font-medium p-3', { 'my-4 bg-gray-100 rounded-md': openedCoupon }]">
           <p class="pl-3">{{ $t('coupon.title') }}</p>
           <SfIconChevronLeft
             :class="['text-neutral-500', { 'rotate-90': openedCoupon, '-rotate-90': !openedCoupon }]"
@@ -23,7 +23,7 @@
         <UiButton
           data-testid="couponAdd"
           @click="addCoupon({ couponCode })"
-          class="ml-2 bg-sky-600 hover:bg-sky-700 active:bg-sky-700 hover:scale-[1.02]"
+          class="ml-2"
           type="reset"
           variant="primary"
           :disabled="loading"

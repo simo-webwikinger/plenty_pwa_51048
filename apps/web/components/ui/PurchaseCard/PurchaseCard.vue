@@ -1,17 +1,13 @@
 <template>
-  <form
-    @submit.prevent="handleAddToCart()"
-    class="md:border md:border-neutral-100 md:shadow-lg md:rounded-md md:sticky md:top-40"
-    data-testid="purchase-card"
-  >
+  <form @submit.prevent="handleAddToCart()" class="md:sticky md:top-40" data-testid="purchase-card">
     <div class="relative">
       <div class="drift-zoom-image">
         <section class="p-4 xl:p-6">
-          <div class="grid grid-cols-[2fr_1fr] mt-4">
-            <h1 class="font-bold typography-headline-2" data-testid="product-name">
+          <div class="grid grid-cols-[2fr_1fr] my-4">
+            <h1 class="font-bold typography-headline-1 md:text-[2.85rem] md:leading-[3rem]" data-testid="product-name">
               {{ productGetters.getName(product) }}
             </h1>
-            <div class="flex items-center justify-center">
+            <!-- <div class="flex items-center justify-center">
               <WishlistButton
                 :product="product"
                 :quantity="quantitySelectorValue"
@@ -29,10 +25,39 @@
                   }}
                 </template>
               </WishlistButton>
+            </div> -->
+          </div>
+          <!-- Short description here | using mock one for now -->
+          <div
+            v-if="productGetters.getShortDescription(product).length > 0"
+            class="my-4 font-normal typography-text-sm whitespace-pre-line break-words"
+            data-testid="product-description"
+          >
+            {{ productGetters.getShortDescription(product) }}
+          </div>
+          <div v-else class="my-4 font-normal typography-headline-3 whitespace-pre-line break-words">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, aspernatur soluta.
+          </div>
+          <div class="flex space-x-2 py-6">
+            <Price :price="priceWithProperties" :crossed-price="crossedPrice" />
+            <div v-if="(productBundleGetters?.getBundleDiscount(product) ?? 0) > 0" class="m-auto">
+              <UiTag :size="'sm'" :variant="'secondary'">{{
+                t('procentageSavings', { percent: productBundleGetters.getBundleDiscount(product) })
+              }}</UiTag>
             </div>
           </div>
-          <!-- Review -->
-          <div class="inline-flex items-center">
+          <LowestPrice :product="product" />
+          <BasePrice
+            v-if="productGetters.showPricePerUnit(product)"
+            :base-price="basePriceSingleValue"
+            :unit-content="productGetters.getUnitContent(product)"
+            :unit-name="productGetters.getUnitName(product)"
+          />
+          <!-- <UiBadges class="mt-4" :product="product" :use-availability="true" /> -->
+          <div class="mt-2 variation-properties">
+            <VariationProperties :product="product" />
+          </div>
+          <!-- <div class="inline-flex items-center mt-4 mb-2">
             <SfRating
               size="xs"
               :half-increment="true"
@@ -48,36 +73,7 @@
             >
               {{ t('showAllReviews') }}
             </UiButton>
-          </div>
-          <!--  -->
-          <hr class="w-8 mt-2 mb-3 h-px" />
-          <div class="flex space-x-2">
-            <Price :price="priceWithProperties" :crossed-price="crossedPrice" />
-            <div v-if="(productBundleGetters?.getBundleDiscount(product) ?? 0) > 0" class="m-auto">
-              <UiTag :size="'sm'" :variant="'secondary'">{{
-                t('procentageSavings', { percent: productBundleGetters.getBundleDiscount(product) })
-              }}</UiTag>
-            </div>
-          </div>
-          <LowestPrice :product="product" />
-          <BasePrice
-            v-if="productGetters.showPricePerUnit(product)"
-            :base-price="basePriceSingleValue"
-            :unit-content="productGetters.getUnitContent(product)"
-            :unit-name="productGetters.getUnitName(product)"
-          />
-          <UiBadges class="mt-4" :product="product" :use-availability="true" />
-          <div class="mt-2 variation-properties">
-            <VariationProperties :product="product" />
-          </div>
-          <!-- Product Short Descripton - empty !? -->
-          <div
-            v-if="productGetters.getShortDescription(product).length > 0"
-            class="mb-4 font-normal typography-text-sm whitespace-pre-line break-words"
-            data-testid="product-description"
-          >
-            {{ productGetters.getShortDescription(product) }}
-          </div>
+          </div> -->
 
           <ProductAttributes :product="product" />
           <BundleOrderItems v-if="product.bundleComponents" :product="product" />
@@ -102,7 +98,7 @@
                   type="submit"
                   data-testid="add-to-cart"
                   size="lg"
-                  class="w-full h-full bg-sky-600 hover:bg-sky-700 active:bg-sky-800 transition-transform duration-300 ease-in-out"
+                  class="w-full h-full"
                   :disabled="loading || !productGetters.isSalable(product)"
                 >
                   <template #prefix>
@@ -117,7 +113,7 @@
                 </UiButton>
               </SfTooltip>
             </div>
-
+            <!-- 
             <div class="mt-4 typography-text-xs flex gap-1">
               <span>{{ t('asterisk') }}</span>
               <span>{{ showNetPrices ? t('itemExclVAT') : t('itemInclVAT') }}</span>
@@ -132,11 +128,11 @@
                   </SfLink>
                 </template>
               </i18n-t>
-            </div>
-            <template v-if="showPayPalButtons">
+            </div> -->
+            <!-- <template v-if="showPayPalButtons">
               <PayPalExpressButton type="SingleItem" @validation-callback="paypalHandleAddToCart" class="mt-4" />
               <PayPalPayLaterBanner placement="product" :amount="priceWithProperties * quantitySelectorValue" />
-            </template>
+            </template> -->
           </div>
         </section>
       </div>

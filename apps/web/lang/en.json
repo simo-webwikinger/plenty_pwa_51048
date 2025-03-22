@@ -117,7 +117,6 @@
     "logout": "Logout",
     "navBottomHeadingAccount": "Account",
     "navBottomHeadingLogin": "Login",
-    "callus": "CALL US NOW",
     "ordersAndReturns": {
       "actions": "Actions",
       "amount": "Amount",
@@ -342,7 +341,7 @@
       }
     }
   },
-  "category": "Categories",
+  "category": "Category",
   "checkout": "Checkout",
   "checkoutPayment": {
     "comingSoon": "Coming soon",
@@ -355,6 +354,7 @@
   "closeDialog": "Close Dialog",
   "closeListSettings": "Close list settings",
   "closeMenu": "Close Menu",
+  "menu": "Menu",
   "coming-soon": "Coming Soon",
   "contact": {
     "clearAll": "Clear all",
@@ -589,7 +589,6 @@
   },
   "guestCheckout": "Guest checkout",
   "home": "Home",
-  "blog": "Blog",
   "homepage": {
     "background": "New Wireless Pro headphones with sleek design and modern features",
     "emptyBlock": {
@@ -786,7 +785,7 @@
     "unbrandedPay": "Pay",
     "invalidOrder": "The order cannot be processed. Please try again."
   },
-  "perPage": "Per Page",
+  "perPage": "Per page",
   "phone": "Phone",
   "pickSavedAddress": "Saved addresses",
   "pickSavedAddressSubtitle": "Select one of your saved addresses or create a new one",
@@ -843,7 +842,6 @@
     "successConfirmationMessage": "We have registered your return request. We will keep you updated on the process.",
     "tellUsMore": "Tell us more about why you want to return these items..."
   },
-  "reviews": "Reviews",
   "review": {
     "anonymous": "Anonymous",
     "answer": "Answer",
@@ -918,7 +916,7 @@
     "titlePostcode": "Please enter the postcode of an address stored for the order to view the order details."
   },
   "somethingWentWrongImageAlt": "Image that describes that something went wrong",
-  "sortBy": "Sort By",
+  "sortBy": "Sort by",
   "sortType": {
     "nameA-Z": "Name A-Z",
     "nameZ-A": "Name Z-A",
@@ -1008,6 +1006,5 @@
     "delete": "The item was removed from your wish list."
   },
   "youAreOfflineText": "It seems you are currently offline, check your internet connection",
-  "double-tap-zoom": "Double-tap to zoom",
-  "moreInformation": "More information"
+  "double-tap-zoom": "Double-tap to zoom"
 }

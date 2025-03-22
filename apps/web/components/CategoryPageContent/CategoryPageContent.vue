@@ -9,7 +9,6 @@
       </CategorySidebar>
       <div class="flex-1">
         <div class="flex justify-between items-center mb-6">
-          <!-- Count of the products found -->
           <span class="font-bold font-headings md:text-lg">
             {{
               $t('numberOfProducts', {
@@ -25,12 +24,6 @@
             {{ $t('listSettings') }}
           </UiButton>
         </div>
-        <!-- Storing and item per page -->
-        <div class="flex justify-between items-center mb-6">
-          <CategorySorting />
-          <CategoryItemsPerPage :total-products="totalProducts" />
-        </div>
-        <!-- Products -->
         <section
           v-if="products?.length"
           class="grid grid-cols-1 2xs:grid-cols-2 gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 mb-10 md:mb-5"
@@ -68,7 +61,6 @@
             />
           </NuxtLazyHydrate>
         </section>
-        <!-- No products - empty state -->
         <LazyCategoryEmptyState v-else />
         <div class="mt-4 mb-4 typography-text-xs flex gap-1" v-if="totalProducts > 0">
           <span>{{ $t('asterisk') }}</span>

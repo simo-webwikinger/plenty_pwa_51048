@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mt-5 bg-sky-50 p-4 sm:p-10 text-center">
+  <div class="relative mt-5 bg-neutral-100 p-4 sm:p-10 text-center">
     <h2 class="typography-headline-4 sm:typography-headline-3 font-bold mb-2">
       {{ t('newsletter.heading') }}
     </h2>

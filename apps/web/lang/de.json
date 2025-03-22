@@ -117,7 +117,6 @@
     "logout": "Ausloggen",
     "navBottomHeadingAccount": "Konto",
     "navBottomHeadingLogin": "Einloggen",
-    "callus": "RUFEN SIE UNS JETZT AN",
     "ordersAndReturns": {
       "actions": "Aktionen",
       "amount": "Anzahl",
@@ -342,7 +341,7 @@
       }
     }
   },
-  "category": "Kategorien",
+  "category": "Kategorie",
   "checkout": "Kasse",
   "checkoutPayment": {
     "comingSoon": "Bald verfügbar",
@@ -842,7 +841,6 @@
     "successConfirmationMessage": "Wir haben Ihre Retoure erfasst. Wir informieren Sie über den weiteren Ablauf.",
     "tellUsMore": "Erzählen Sie uns mehr darüber, warum Sie diese Artikel zurückgeben möchten.."
   },
-  "reviews": "Rezensionen",
   "review": {
     "anonymous": "Anonym",
     "answer": "Antworten",
@@ -917,7 +915,7 @@
     "titlePostcode": "Bitte geben Sie die Postleitzahl einer Adresse ein, die am Auftrag hinterlegt ist, um die Auftragsdetails einzusehen."
   },
   "somethingWentWrongImageAlt": "Bild, das erklärt das etwas schief gegangen ist",
-  "sortBy": "Sortieren Nach",
+  "sortBy": "Sortieren nach",
   "sortType": {
     "nameA-Z": "Name A-Z",
     "nameZ-A": "Name Z-A",
@@ -1007,6 +1005,5 @@
     "delete": "Der Artikel wurde von der Wunschliste entfernt."
   },
   "youAreOfflineText": "Es scheint, dass Sie derzeit offline sind, überprüfen Sie Ihre Internetverbindung",
-  "double-tap-zoom": "Zum Zoomen doppeltippen",
-  "moreInformation": "Mehr Informationen"
+  "double-tap-zoom": "Zum Zoomen doppeltippen"
 }

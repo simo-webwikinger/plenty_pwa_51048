@@ -1,12 +1,11 @@
 <template>
-  <form ref="referenceRef" role="search" class="relative search-bar" @submit.prevent="handleSubmit">
+  <form ref="referenceRef" role="search" class="relative" @submit.prevent="handleSubmit">
     <SfInput
       ref="inputReference"
       v-model="inputModel"
       :aria-label="t('search')"
       id="search-bar"
       :placeholder="t('search')"
-      class="bg-slate-100 pl-4"
       @focus="open"
     >
       <template #prefix>
@@ -66,12 +65,3 @@ watch(inputModel, () => {
   }
 });
 </script>
-
-<style scoped>
-form span {
-  background-color: #f1f5f9;
-  padding: 0.5rem;
-  border-radius: 1.375rem;
-  flex-direction: row-reverse;
-}
-</style>

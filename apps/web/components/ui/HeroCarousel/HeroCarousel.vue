@@ -1,5 +1,5 @@
 <template>
-  <ClientOnly>
+  <!-- <ClientOnly>
     <Swiper
       :modules="enableModules ? [Pagination, Navigation] : []"
       :slides-per-view="1"
@@ -17,7 +17,15 @@
     <template #fallback>
       <UiHeroContentSkeleton />
     </template>
-  </ClientOnly>
+  </ClientOnly> -->
+  <NuxtImg
+    src="/images/hero.jpg"
+    alt="Hero banner"
+    class="w-full h-[260px] md:h-[500px] object-cover"
+    loading="eager"
+    width="1521"
+    height="500"
+  />
 </template>
 
 <script setup lang="ts">

@@ -24,8 +24,47 @@
           :add-new-block="addNewBlock"
           :handle-edit="handleEdit"
           :delete-block="deleteBlock"
+          class="mx-8 md:mx-24 first:mx-0"
         />
       </template>
+      <UiTeaser
+      title="Alpinaweiss"
+      subtitle="MEHR WEISS, MEHR SPAREN"
+      description="Nur solange der Vorrat reicht! Jetzt 1 oder 2 Aktionseimer Alpinaweiß Das Original 10 L kaufen und 7,50 € oder 20 € Cashback sichern."
+      desktopImage="/images/home_teaser_dt.jpg"
+      mobileImage="/images/home_teaser_mb.jpg"
+      altText="altText"
+      buttontext="Zum Angebot"
+      :textblack=false
+    />
+      <UiTeaser
+      title="Alpina Rollputz"
+      subtitle="20 % mehr Inhalt gratis!"
+      description="Nur für kurze Zeit und solange der Vorrat reicht. In einem Arbeitsschritt zu perfekt strukturierten Wänden: Nur 1 x aufrollen – fertig!"
+      desktopImage="/images/home_teaser_dt2.jpg"
+      mobileImage="/images/home_teaser_mb2.jpg"
+      altText="altText"
+      buttontext="Jetzt entdecken"
+      :textblack=true
+    />
+    <div class="mx-8 md:mx-24 my-4 md:my-8">
+    <ProductRecommendedProducts
+      headline="Entdecken Sie unsere Modekollektion"
+      categoryId="16"
+    />
+    </div>
+    <div class="mx-8 md:mx-24 my-4 md:my-8">
+      <NewsletterSubscribe
+        email="E-Mail"
+        firstName="Vorname"
+        heading="Abonnieren Sie unseren Newsletter"
+        info="Informieren Sie sich über bevorstehende Aktionen und Veranstaltungen. Erhalten Sie Geschenke und Sonderangebote!"
+        lastName="Nachname"
+        policy="Ich bestätige hiermit, dass ich die {privacyPolicy} gelesen habe. Ich kann meine Einwilligung jederzeit widerrufen."
+        subscribe="Newsletter abonnieren"
+        success="Vielen Dank für Ihre Anmeldung! Bitte prüfen Sie Ihr E-Mail-Postfach und klicken Sie auf den Bestätigungslink in unserer Nachricht, um den Newsletter zu abonnieren."
+      />
+    </div>
     </div>
   </div>
 </template>
@@ -67,10 +106,10 @@ const addNewBlock = (index: number, position: number) => {
 const { isEditing, disableActions } = useEditor();
 
 const getComponent = (name: string) => {
-  if (name === 'NewsletterSubscribe') return resolveComponent('NewsletterSubscribe');
+  // if (name === 'NewsletterSubscribe') return resolveComponent('NewsletterSubscribe');
   if (name === 'UiHeroCarousel') return resolveComponent('UiHeroCarousel');
-  if (name === 'UiMediaCard') return resolveComponent('UiMediaCard');
-  if (name === 'ProductRecommendedProducts') return resolveComponent('ProductRecommendedProducts');
+  // if (name === 'UiMediaCard') return resolveComponent('UiMediaCard');
+  // if (name === 'ProductRecommendedProducts') return resolveComponent('ProductRecommendedProducts');
 };
 
 fetchPageTemplate();

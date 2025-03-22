@@ -71,11 +71,10 @@ const type = computed(
 </script>
 <script lang="ts">
 export const variantClasses = {
-  [SfButtonVariant.primary]:
-    'text-white shadow hover:shadow-md active:shadow bg-sky-600 hover:bg-sky-700 active:bg-sky-700 disabled:bg-disabled-300',
+  [SfButtonVariant.primary]: '!text-white shadow hover:shadow-md active:shadow bg-brown disabled:bg-disabled-300',
   [SfButtonVariant.secondary]:
-    'text-sky-600 hover:bg-sky-100 hover:text-sky-800 active:bg-sky-200 active:text-sky-900 ring-1 ring-inset ring-sky-600 shadow hover:shadow-md active:shadow hover:ring-sky-800 active:ring-sky-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
+    'text-brown cursor !p-[0.3rem] bg-white ring-1 ring-inset ring-primary-500 shadow hover:shadow-md active:shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
   [SfButtonVariant.tertiary]:
-    'text-black hover:bg-sky-200 hover:text-black active:bg-sky-200 active:text-sky-900 disabled:bg-transparent',
+    'text-primary-500 hover:bg-transparent hover:text-primary-800 active:transparent active:text-primary-900 disabled:bg-transparent',
 };
 </script>

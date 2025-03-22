@@ -222,5 +222,3 @@ You should aim to complete the task within 10 working days.
 All the best
 
 
-#   p l e n t y _ p w a _ 5 1 0 4 8  
- 

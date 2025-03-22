@@ -17,6 +17,7 @@ export default {
           fontFamily: 'inherit',
         },
         'headline-1': {
+          lineHeight: '2.5rem',
           fontFamily: 'inherit',
         },
         'headline-2': {
@@ -39,6 +40,8 @@ export default {
         body: [`${fontFamilyText}`, ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        orange: "#ef7d00",
+        brown: "#3e3838",
         primary: {
           '50': 'rgb(var(--colors-2-primary-50) / <alpha-value>)',
           '100': 'rgb(var(--colors-2-primary-100) / <alpha-value>)',
@@ -70,7 +73,7 @@ export default {
         'product-page': ['left-top right', 'left-bottom right'],
       },
       gridTemplateColumns: {
-        'product-page': 'minmax(52%, 500px) auto',
+        'product-page': 'minmax(56%, 500px) auto',
       },
       gridTemplateRows: {
         'category-sidebar': 'min-content auto min-content',

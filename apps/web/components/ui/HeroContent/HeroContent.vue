@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex md:justify-center mx-auto mb-10 text-center">
+  <div class="md:flex md:flex-row-reverse md:justify-center mx-auto mb-10 text-center">
     <div class="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
       <img
         :src="currentImageSource"

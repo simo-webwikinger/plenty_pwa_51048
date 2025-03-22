@@ -1,12 +1,12 @@
 <template>
   <SfListItem
     size="lg"
-    :class="['md:py-1.5 hover:bg-gray-50', { 'font-medium': selected }]"
+    :class="['md:py-1.5', { 'bg-primary-100 hover:bg-primary-100 active:bg-primary-100 font-medium': selected }]"
     data-testid="category-tree-item"
     v-if="name.length > 0"
   >
     <NuxtLink :to="localePath(href)">
-      <span class="flex gap-2 items-center *:hover:scale-[1.02]">
+      <span class="flex gap-2 items-center">
         <span class="text-base md:text-sm capitalize flex items-center" data-testid="list-item-menu-label">
           <slot />
           {{ name }}

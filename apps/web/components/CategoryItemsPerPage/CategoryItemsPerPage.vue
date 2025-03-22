@@ -1,13 +1,15 @@
 <template>
-  <div class="flex justify-center items-center" data-testid="category-items-per-page">
-    <h6 class="md:text-sm text-xs text-gray-800 select-none">{{ $t('perPage') }}:</h6>
+  <div class="w-full md:max-w-[376px]" data-testid="category-items-per-page">
+    <h6
+      class="bg-neutral-100 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest select-none"
+    >
+      {{ $t('perPage') }}
+    </h6>
 
-    <div class="px-4 min-w-28 max-w-28">
+    <div class="px-4">
       <SfSelect
-        size="sm"
         v-model="selected"
         :aria-label="$t('perPage')"
-        class="md:text-sm text-xs"
         id="perPage"
         @change="updateItemsPerPage(Number(selected))"
       >

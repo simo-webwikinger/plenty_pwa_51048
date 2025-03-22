@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <CheckoutProgress :steps="steps" :activeStepIndex="1" />
-
-    <div class="lg:grid lg:grid-cols-12 lg:gap-x-6 my-4 md:mb-24 max-w-[92vw] mx-auto">
-      <div class="col-span-5 xl:col-span-6 mb-10 lg:mb-0">
+  <NuxtLayout
+    name="checkout"
+    :back-label-desktop="t('backToCart')"
+    :back-label-mobile="t('back')"
+    :heading="t('checkout')"
+  >
+    <div v-if="cart" class="lg:grid lg:grid-cols-12 lg:gap-x-6">
+      <div class="col-span-6 xl:col-span-7 mb-10 lg:mb-0">
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0" />
         <ContactInformation />
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0" id="top-shipping-divider" />
@@ -24,7 +27,7 @@
         <UiDivider class="w-screen md:w-auto -mx-4 md:mx-0 mb-10" />
         <CheckoutGeneralTerms />
       </div>
-      <div class="col-span-7 xl:col-span-6">
+      <div class="col-span-6 xl:col-span-5">
         <div v-for="(cartItem, index) in cart?.items" :key="cartItem.id">
           <UiCartProductCard :cart-item="cartItem" :class="{ 'border-t': index === 0 }" />
         </div>
@@ -66,7 +69,6 @@
               :disabled="disableBuyButton"
               size="lg"
               data-testid="place-order-button"
-              id="buy-button"
               class="w-full mb-4 md:mb-0 cursor-pointer"
             >
               <template v-if="createOrderLoading">
@@ -87,7 +89,7 @@
     >
       <PayPalCreditCardForm @confirm-cancel="paypalCardDialog = false" />
     </UiModal>
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
@@ -102,25 +104,12 @@ import {
 } from '~/composables/usePayPal/types';
 import { AddressType, paymentProviderGetters, cartGetters } from '@plentymarkets/shop-api';
 import { PayPalAddToCartCallback } from '~/components/PayPal/types';
-import CheckoutProgress from '~/components/CheckoutProgress/CheckoutProgress.vue';
+
 definePageMeta({
+  layout: 'simplified-header-and-footer',
   pageType: 'static',
   middleware: ['reject-empty-checkout'],
-  layout: 'default',
 });
-
-const scrollToBuyButton = () => {
-  const buyButton = document.getElementById('buy-button');
-  if (buyButton) {
-    buyButton.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-const steps = [
-  { name: 'Shopping Cart', link: '/cart' },
-  { name: 'Checkout', link: '/checkout' },
-  { name: 'Order Complete', action: scrollToBuyButton },
-];
 
 const { send } = useNotification();
 const { t } = useI18n();

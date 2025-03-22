@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="border border-neutral-200 rounded-md hover:shadow-lg flex flex-col justify-center text-center p-2 *:items-center"
-    data-testid="product-card"
-  >
+  <div class="border border-neutral-200 rounded-md hover:shadow-lg flex flex-col" data-testid="product-card">
     <div class="relative overflow-hidden">
       <UiBadges
         :class="['absolute', isFromWishlist ? 'mx-2' : 'm-2']"
@@ -75,7 +72,7 @@
       <UiButton
         v-if="productGetters.canBeAddedToCartFromCategoryPage(product)"
         size="sm"
-        class="min-w-[80px] w-fit self-center bg-sky-600 hover:bg-sky-700 active:bg-sky-700 hover:scale-[1.02] transition-transform duration-300 ease-in-out"
+        class="min-w-[80px] w-fit"
         data-testid="add-to-basket-short"
         @click="addWithLoader(Number(productGetters.getId(product)))"
         :disabled="loading"
@@ -88,14 +85,7 @@
           {{ t('addToCartShort') }}
         </span>
       </UiButton>
-      <UiButton
-        v-else
-        type="button"
-        :tag="NuxtLink"
-        :to="productPath"
-        size="sm"
-        class="w-fit self-center bg-sky-600 hover:bg-sky-700 active:bg-sky-700 hover:scale-[1.02] transition-transform duration-300 ease-in-out"
-      >
+      <UiButton v-else type="button" :tag="NuxtLink" :to="productPath" size="sm" class="w-fit">
         <span>{{ t('showOptions') }}</span>
       </UiButton>
     </div>

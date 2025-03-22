@@ -1,17 +1,12 @@
 <template>
   <MegaMenu :categories="categoryTree">
-    <template v-if="viewport.isGreaterOrEquals('md')">
-      <!-- Search bar -->
-      <UiSearch class="hidden md:block flex-1" />
-      <!-- Call Us -->
-      <a href="tel:+491234000">
-        <UiCallUs />
-      </a>
-      <nav class="hidden gap-2 md:flex md:flex-row md:flex-nowrap">
-        <template v-if="localeCodes.length > 1">
+    <!-- <template v-if="viewport.isGreaterOrEquals('md')"> -->
+    <!-- <UiSearch class="hidden md:block flex-1" /> -->
+    <nav class="flex items-center justify-between pl-4 md:pl-10 w-full border-0 bg-white py-0">
+      <!-- <template v-if="localeCodes.length > 1">
           <UiButton
             v-if="!isLanguageSelectOpen"
-            class="group relative -ml-0.5 rounded-md cursor-pointer"
+            class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
             :aria-label="t('languageSelector')"
             variant="tertiary"
             square
@@ -25,7 +20,7 @@
           </UiButton>
           <UiButton
             v-else
-            class="group relative -ml-0.5 rounded-md cursor-pointer"
+            class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md cursor-pointer"
             :aria-label="t('languageSelector')"
             variant="tertiary"
             square
@@ -37,7 +32,7 @@
           </UiButton>
         </template>
         <UiButton
-          class="group relative -ml-0.5 rounded-md"
+          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           :tag="NuxtLink"
           :to="localePath(paths.wishlist)"
           :aria-label="t('numberInWishlist', { count: wishlistItemIds.length })"
@@ -55,32 +50,44 @@
               :max="99"
             />
           </template>
-        </UiButton>
+        </UiButton> -->
+      <UiButton
+        class="group relative text-orange active:text-orange mr-1 -ml-0.5 rounded-md"
+        :tag="NuxtLink"
+        :to="localePath(paths.cart)"
+        :aria-label="t('numberInCart', { count: cartItemsCount })"
+        variant="tertiary"
+        square
+      >
+        <template #prefix>
+          <SfIconShoppingCart size="base" class="text-orange" />
+          <SfBadge
+            :content="cartItemsCount"
+            class="outline outline-primary-500 bg-white !text-orange flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
+            data-testid="cart-badge"
+            placement="top-right"
+            :max="99"
+          />
+        </template>
+      </UiButton>
+      <div>
+        <!-- <SfIconSearch size="lg" /> -->
         <UiButton
-          class="group relative -ml-0.5 rounded-md"
-          :tag="NuxtLink"
-          :to="localePath(paths.cart)"
-          :aria-label="t('numberInCart', { count: cartItemsCount })"
           variant="tertiary"
+          class="relative text-orange rounded-md"
           square
+          @click="searchModalOpen"
+          :aria-label="t('openSearchModalButtonLabel')"
         >
-          <template #prefix>
-            <SfIconShoppingCart />
-            <SfBadge
-              :content="cartItemsCount"
-              class="outline outline-primary-500 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
-              data-testid="cart-badge"
-              placement="top-right"
-              :max="99"
-            />
-          </template>
+          <SfIconSearch size="lg" />
         </UiButton>
-        <SfDropdown v-if="isAuthorized" v-model="isAccountDropdownOpen" placement="bottom-end" class="z-50">
+      </div>
+      <!-- <SfDropdown v-if="isAuthorized" v-model="isAccountDropdownOpen" placement="bottom-end" class="z-50">
           <template #trigger>
             <UiButton
               variant="tertiary"
-              class="relative rounded-md"
-              :class="{ 'bg-sky-100': isAccountDropdownOpen }"
+              class="relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 rounded-md"
+              :class="{ 'bg-primary-700': isAccountDropdownOpen }"
               @click="accountDropdownToggle()"
               data-testid="account-dropdown-button"
             >
@@ -94,7 +101,7 @@
             <li v-for="({ label, link }, labelIndex) in accountDropdown" :key="`label-${labelIndex}`">
               <template v-if="label === t('account.logout')">
                 <UiDivider class="my-2" />
-                <SfListItem tag="button" class="text-left !hover:bg-sky-100" data-testid="account-dropdown-logout-item" @click="logOut()">
+                <SfListItem tag="button" class="text-left" data-testid="account-dropdown-logout-item" @click="logOut()">
                   {{ label }}
                 </SfListItem>
               </template>
@@ -102,7 +109,7 @@
                 v-else
                 :tag="NuxtLink"
                 :to="link"
-                :class="{ 'bg-sky-100': route.path === link, 'hover:bg-sky-50': route.path !== link }"
+                :class="{ 'bg-neutral-200': route.path === link }"
                 data-testid="account-dropdown-list-item"
               >
                 {{ label }}
@@ -113,7 +120,7 @@
         <UiButton
           v-else
           @click="navigateToLogin"
-          class="group relative text-black hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
+          class="group relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 mr-1 -ml-0.5 rounded-md"
           variant="tertiary"
           :aria-label="t('auth.login.openLoginForm')"
           square
@@ -129,14 +136,14 @@
           square
         >
           <SfIconTune />
-        </UiButton>
-      </nav>
-    </template>
+        </UiButton> -->
+    </nav>
+    <!-- </template> -->
 
-    <div v-if="viewport.isLessThan('lg')">
+    <!-- <div v-if="viewport.isLessThan('lg')">
       <UiButton
         variant="tertiary"
-        class="relative rounded-md md:hidden"
+        class="relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 rounded-md md:hidden"
         square
         data-testid="open-languageselect-button"
         :aria-label="t('languageSelector')"
@@ -147,16 +154,16 @@
       </UiButton>
       <UiButton
         variant="tertiary"
-        class="relative  rounded-md md:hidden"
+        class="relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 rounded-md md:hidden"
         square
         @click="searchModalOpen"
         :aria-label="t('openSearchModalButtonLabel')"
       >
         <SfIconSearch />
       </UiButton>
-    </div>
+    </div> -->
   </MegaMenu>
-  <LanguageSelector />
+  <!-- <LanguageSelector />
   <UiModal
     v-if="viewport.isGreaterOrEquals('md') && isAuthenticationOpen"
     v-model="isAuthenticationOpen"
@@ -176,25 +183,25 @@
     </header>
     <LoginComponent v-if="isLogin" @change-view="isLogin = false" @logged-in="closeAuthentication" :is-modal="true" />
     <Register v-else @change-view="isLogin = true" @registered="closeAuthentication" :is-modal="true" />
-  </UiModal>
+  </UiModal> -->
 
-  <NuxtLazyHydrate v-if="viewport.isLessThan('lg')" when-idle>
+  <NuxtLazyHydrate when-idle>
     <SfModal
       v-model="isSearchModalOpen"
-      class="w-full h-full z-50"
+      class="w-full h-full md:h-[200px] md:top-[55px] md:absolute z-40 md:!m-0 !md:pt-12"
       tag="section"
       role="dialog"
       aria-labelledby="search-modal-title"
     >
-      <header class="mb-4">
+      <header class="mb-4 mt-4">
         <UiButton square variant="tertiary" class="absolute right-4 top-2" @click="searchModalClose">
-          <SfIconClose class="text-sky-100" />
+          <SfIconClose class="text-neutral-500" />
         </UiButton>
-        <h3 id="search-modal-title" class="absolute left-6 top-4 font-bold typography-headline-4 mb-4">
+        <h3 id="search-modal-title" class="absolute left-10 top-8 font-bold typography-headline-4 mb-4">
           {{ t('search') }}
         </h3>
       </header>
-      <UiSearch :close="searchModalClose" />
+      <UiSearch :close="searchModalClose" class="top-8" />
     </SfModal>
   </NuxtLazyHydrate>
   <LazyConfigurationDrawer v-if="showConfigurationDrawer" />

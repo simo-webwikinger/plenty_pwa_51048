@@ -1,11 +1,11 @@
 <template>
   <h6
-    class="py-2 pt-2 px-4 mt-4 mb-4 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest select-none"
+    class="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md select-none"
     data-testid="category-filters"
   >
     {{ $t('filters') }}
   </h6>
-  <div class="flex flex-col gap-2 px-4 md:border-none">
+  <div class="flex flex-col gap-2 px-4">
     <CategoryFiltersFilter v-for="facet in facets" :key="facet.id" :facet="facet" />
   </div>
 </template>

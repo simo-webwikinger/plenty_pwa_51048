@@ -1,8 +1,7 @@
 <template>
-  <CheckoutProgress :steps="steps" :activeStepIndex="2" />
   <div class="px-4 md:px-0 flex items-center flex-col" data-testid="order-success-page">
-    <div class="p-4 md:p-0 md:pb-4 flex flex-col max-w-2xl mx-auto">
-      <h1 class="mt-2 mb-1 text-2xl text-center" data-testid="success-header">
+    <div class="p-4 md:p-6 flex flex-col max-w-2xl mx-auto">
+      <h1 class="mt-6 mb-1 text-2xl text-center" data-testid="success-header">
         {{ !orderGetters.isReturn(order) ? t('successInfoOrderHeader') : t('successInfoReturnHeader') }}
       </h1>
       <div v-if="!orderGetters.isReturn(order)" class="font-medium text-center">{{ t('successInfoMessage') }}</div>
@@ -104,13 +103,6 @@ const { isAuthorized } = useCustomer();
 const { getActiveShippingCountries } = useActiveShippingCountries();
 const localePath = useLocalePath();
 const bankDetails = orderGetters.getOrderPaymentBankDetails(order);
-
-const steps = [
-  { name: 'Shopping Cart', link: '/cart' },
-  { name: 'Checkout', link: '/checkout' },
-  { name: 'Order Complete', link: '#' },
-];
-
 useProcessingOrder().processingOrder.value = false;
 
 await getActiveShippingCountries();

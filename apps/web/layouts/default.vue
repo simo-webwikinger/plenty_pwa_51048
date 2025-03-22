@@ -8,7 +8,7 @@
     <main>
       <slot />
     </main>
-    <UiNavbarBottom v-if="viewport.isLessThan('lg')" />
+    <!-- <UiNavbarBottom v-if="viewport.isLessThan('lg')" /> -->
     <Cookiebar />
     <PreviewMode />
     <NuxtLazyHydrate when-visible>

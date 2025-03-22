@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col md:flex-row h-full flex relative scroll-smooth md:gap-4 relative" data-testid="gallery">
+  <div class="flex-col md:flex-col-reverse h-full flex relative scroll-smooth md:gap-4 relative" data-testid="gallery">
     <div
       class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full max-h-[600px]"
       data-testid="gallery-images"

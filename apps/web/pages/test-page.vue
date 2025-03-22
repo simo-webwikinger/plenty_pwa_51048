@@ -1,15 +1,24 @@
 <template>
-  <div>
-    <h1>All Routes test</h1>
-    <ul>
-      <li v-for="route in routes" :key="route.path">{{ route.path }}</li>
-    </ul>
-  </div>
-</template>
+    <div class="w-full p-5 overflow-x-auto no-preflight">
 
-<script setup>
-import { useRouter } from 'vue-router';
 
-const router = useRouter();
-const routes = router.getRoutes();
-</script>
+        test page 
+    </div>
+  </template>
+  
+  <script setup lang="ts">
+  const { data, getLegalTexts } = useLegalInformation();
+  
+  definePageMeta({
+    pageType: 'static',
+  });
+  
+  await getLegalTexts({
+    type: 'TermsConditions',
+  });
+  
+  const getHTMLTexts = () => {
+    return data.value.htmlText ?? '';
+  };
+  </script>
+  

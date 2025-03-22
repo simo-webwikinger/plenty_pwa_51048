@@ -1,8 +1,7 @@
-<!-- Single Product page template -->
 <template>
   <NuxtLayout name="default" :breadcrumbs="breadcrumbs">
     <NarrowContainer>
-      <div class="md:grid gap-x-6 grid-areas-product-page grid-cols-product-page">
+      <div class="md:grid gap-x-6 mx-16 grid-areas-product-page grid-cols-product-page">
         <section class="grid-in-left-top md:h-full xl:max-h-[700px]">
           <Gallery :images="addModernImageExtensionForGallery(productGetters.getGallery(product))" />
         </section>
@@ -11,43 +10,28 @@
             <UiPurchaseCard v-if="product" :product="product" :review-average="countsProductReviews" />
           </NuxtLazyHydrate>
         </section>
-        <!-- Product Details -->
-        <section></section>
         <section class="grid-in-left-bottom md:mt-8">
-          <!-- <UiDivider class="mt-4 mb-2 md:mt-8" /> -->
+          <UiDivider class="mt-4 mb-2 md:mt-8" />
           <NuxtLazyHydrate when-visible>
-            <ProductAccordion v-if="product" :product="product">
-              <template #reviews>
-                <ReviewsAccordion
-                  v-if="product"
-                  :product="product"
-                  :total-reviews="reviewGetters.getTotalReviews(countsProductReviews)"
-                />
-              </template>
-              <template #more-information>
-                <!-- more informations here -->
-                <div class="p-4 flex">
-                  <p @click="openDrawer()" class="font-bold leading-6 cursor-pointer">
-                    <span>{{ t('legalDetails') }}</span>
-                    <SfIconChevronRight />
-                  </p>
-                </div>
-              </template>
-            </ProductAccordion>
+            <ProductAccordion v-if="product" :product="product" />
           </NuxtLazyHydrate>
-          <!-- <ReviewsAccordion
+
+          <ReviewsAccordion
             v-if="product"
             :product="product"
             :total-reviews="reviewGetters.getTotalReviews(countsProductReviews)"
-          /> -->
+          />
+
+          <div class="p-4 flex">
+            <p @click="openDrawer()" class="font-bold leading-6 cursor-pointer">
+              <span>{{ t('legalDetails') }}</span>
+              <SfIconChevronRight />
+            </p>
+          </div>
         </section>
       </div>
-      <!-- Product recommendation -->
       <section class="mx-4 mt-28 mb-20">
         <NuxtLazyHydrate when-visible>
-          <h3 class="font-bold typography-headline-3 my-4 py-1 !capitalize border-b-2 border-b-neutral-200">
-            {{ $t('products') }}
-          </h3>
           <ProductRecommendedProducts
             :category-id="productGetters.getCategoryIds(product)[0]"
           ></ProductRecommendedProducts>

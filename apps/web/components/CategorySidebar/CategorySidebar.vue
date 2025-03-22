@@ -25,10 +25,8 @@
           </UiButton>
         </div>
         <slot class="overflow-y-auto md:overflow-y-visible py-4 md:p-0" />
-        <div
-          class="p-4 md:mt-2 md:hidden flex flex-wrap justify-between border-t border-t-neutral-200 md:border-0 gap-3"
-        >
-          <UiButton class="whitespace-nowrap flex flex-1" variant="primary" @click="$emit('close')">
+        <div class="p-4 md:mt-2 flex flex-wrap justify-between border-t border-t-neutral-200 md:border-0 gap-3">
+          <UiButton class="md:hidden whitespace-nowrap flex flex-1" variant="primary" @click="$emit('close')">
             {{ $t('showProducts') }}
           </UiButton>
         </div>

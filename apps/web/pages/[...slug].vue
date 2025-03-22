@@ -1,4 +1,3 @@
-<!-- this is the Categories/Product page  -->
 <template>
   <NuxtLayout
     name="default"
@@ -20,12 +19,10 @@
         :items-per-page="Number(productsPerPage)"
       >
         <template #sidebar>
-          <div class="md:border md:border-neutral-200 md:*:border-t md:*:pt-4">
-            <CategoryTree :category="productsCatalog.category" />
-            <!-- <CategorySorting />
-            <CategoryItemsPerPage class="mt-6" :total-products="productsCatalog.pagination.totals" /> -->
-            <CategoryFilters v-if="facetGetters.hasFilters(productsCatalog.facets)" :facets="productsCatalog.facets" />
-          </div>
+          <CategoryTree :category="productsCatalog.category" />
+          <CategorySorting />
+          <CategoryItemsPerPage class="mt-6" :total-products="productsCatalog.pagination.totals" />
+          <CategoryFilters v-if="facetGetters.hasFilters(productsCatalog.facets)" :facets="productsCatalog.facets" />
         </template>
       </CategoryPageContent>
     </template>
