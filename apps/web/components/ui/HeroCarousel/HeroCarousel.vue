@@ -18,14 +18,7 @@
       <UiHeroContentSkeleton />
     </template>
   </ClientOnly> -->
-  <NuxtImg
-    src="/images/hero.jpg"
-    alt="Hero banner"
-    class="w-full h-[260px] md:h-[500px] object-cover"
-    loading="eager"
-    width="1521"
-    height="500"
-  />
+  <img src="/images/hero.jpg" loading="eager" width="1521" height="500"alt="Hero banner" class="w-full h-[260px] md:h-[500px] object-cover" />
 </template>
 
 <script setup lang="ts">
